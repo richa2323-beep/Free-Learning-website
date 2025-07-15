@@ -12,6 +12,7 @@ const Navbar = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/courses">Courses</Link></li>
         <li><Link to="/about">About</Link></li> {/* fixed path */}
+        <li> <Link to= "/Login">Login </Link></li>
       </ul>
     </nav>
   );
