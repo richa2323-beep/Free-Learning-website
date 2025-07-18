@@ -1,13 +1,14 @@
-// src/App.jsx
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+
+
+import {BrowserRouter as Router, Routes,Route} from 'react-router-dom';
 import Home from './pages/Home';
 import Courses from './pages/Courses';
 import About from './pages/About'; 
 import Footer from './Components/Footer';
 import './App.css';
 import Login from './pages/Login';
+import Navbar from './Components/Navbar';
 
 const App = () => {
   return (

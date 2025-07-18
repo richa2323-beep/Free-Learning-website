@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import courses from '../assets/data/Couses';
-import CourseCard from '../components/CourseCard';
+
+
+import CourseCard from '../Components/CourseCard';
 
 const Home = () => {
 
