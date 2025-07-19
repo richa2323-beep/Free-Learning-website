@@ -3,20 +3,23 @@ import CourseCard from '../Components/CourseCard';
 import courses from '../assets/data/Couses';
 
 const Courses = () => {
+  // Extract unique categories
+  const categories = [...new Set(courses.map(course => course.category))];
+
+  // Set the first category as the default filter
   const [searchTerm, setSearchTerm] = useState('');
-  const [categoryFilter, setCategoryFilter] = useState('All');
+  const [categoryFilter, setCategoryFilter] = useState(categories[0]);
 
-
-  const categories = ['All', ...new Set(courses.map(course => course.category))];
-
+  // Filter courses based on search and category
   const filteredCourses = courses.filter(course => {
     const matchesSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = categoryFilter === 'All' || course.category === categoryFilter;
+    const matchesCategory = course.category === categoryFilter;
     return matchesSearch && matchesCategory;
   });
 
   return (
     <main>
+      {/* Controls */}
       <div className="controls" style={{ display: 'flex', gap: '1rem', marginBottom: '20px', padding: '0 1rem' }}>
         <input
           type="text"
@@ -25,13 +28,10 @@ const Courses = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
           style={{ padding: '0.5rem', flex: '1' }}
         />
-        <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)} style={{ padding: '0.5rem' }}>
-          {categories.map((cat, index) => (
-            <option key={index} value={cat}>{cat}</option>
-          ))}
-        </select>
+        
       </div>
 
+      {/* Courses */}
       <div className="course-container">
         {filteredCourses.length > 0 ? (
           filteredCourses.map((course, index) => (
